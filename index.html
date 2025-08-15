@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xperio - Experience The Authentic Local</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        /* Import Google Fonts at the top */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        /* --- General Body Styling --- */
+        body {
+            background-color: #ffffff;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* --- Hero Section Styling --- */
+        .hero-section {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        /* Dark overlay for better text readability */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+            z-index: 1;
+        }
+
+        /* Ensure content appears above the overlay */
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- Navigation Bar Styling --- */
+        .navbar {
+            padding: 0.5rem 2rem;
+            transition: background-color 0.3s ease-in-out;
+            background-color: transparent;
+            /* Set initial state here */
+        }
+
+        .navbar.scrolled {
+            background-color: #222222;
+            /* This is the dark background color on scroll */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: #fff !important;
+        }
+
+        .navbar.scrolled .navbar-brand {
+            color: #fff !important;
+        }
+
+        /* Styling for the red graphic in the logo */
+        .navbar-brand span {
+            color: #ff4d4d;
+            display: inline-block;
+            margin-right: -5px;
+            /* Nudge it closer to the text */
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            color: #fff !important;
+            /* Increased margin for more spacing */
+            margin: 0 1.5rem;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* This hover style now applies to both scrolled and unscrolled states */
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff !important;
+            border-bottom: 3px solid #fff;
+        }
+
+        .btn-contact {
+            font-family: 'Poppins', sans-serif;
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 30px;
+            font-weight: 600;
+            padding: 10px 28px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #fff;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-contact:hover {
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-contact:hover::before {
+            width: 100%;
+        }
+
+        /* --- Hero Content Styling --- */
+        .hero-content {
+            /* Increased max-width for better layout on large screens */
+            max-width: 900px;
+        }
+
+        .hero-content h1 {
+            /* Slightly increased font size for more impact */
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+            color: white;
+        }
+
+        .hero-content h1 strong {
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-content h1 strong::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #ff4d4d;
+            transform: scaleX(0.8);
+            transform-origin: center;
+        }
+
+        /* New style for the subtitle for better hierarchy */
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-weight: 400;
+            margin-top: 1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: white;
+        }
+
+        .hero-subtitle strong {
+            font-weight: 700;
+            color: #ff4d4d;
+        }
+
+
+        /* --- Action Buttons Styling --- */
+        .action-buttons {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-custom {
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            transition: all 0.4s ease;
+            letter-spacing: 1.2px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-plan-trip {
+            background-color: #ff4d4d;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-plan-trip:hover {
+            background-color: #ff3333;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
+        }
+
+        .btn-learn-more {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 12px 28px;
+        }
+
+        .btn-learn-more:hover {
+            background-color: white;
+            color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* --- Slider Controls --- */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .slider-arrow:hover {
+            opacity: 1;
+        }
+
+        .arrow-left {
+            left: 30px;
+        }
+
+        .arrow-right {
+            right: 30px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active,
+        .dot:hover {
+            background-color: #fff;
+        }
+
+        /* Mute/Unmute Button Styling */
+        .mute-toggle {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            z-index: 3;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mute-toggle:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* --- Why Choose Us Section Styling --- */
+        .why-choose-us-section {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features-row {
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 2.5rem 1.5rem;
+            height: 100%;
+            transition: all 0.4s ease;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: #ff4d4d;
+            opacity: 0.05;
+            transition: height 0.4s ease;
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover::before {
+            height: 100%;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 77, 77, 0.1);
+            border-radius: 50%;
+            color: #ff4d4d;
+            font-size: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background-color: #ff4d4d;
+            color: #fff;
+            transform: rotateY(180deg);
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-text {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* --- About Us Section Styling --- */
+        .about-us-section {
+            padding: 6rem 0;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .about-image-container {
+            position: relative;
+        }
+
+        .about-image-main {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image-accent {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.2);
+            z-index: 2;
+        }
+
+        .experience-badge {
+            position: absolute;
+            top: 30px;
+            left: -20px;
+            background-color: #ff4d4d;
+            color: white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
+            z-index: 3;
+        }
+
+        .experience-badge .years {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .experience-badge .text {
+            font-size: 0.8rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .about-content {
+            padding-left: 2rem;
+        }
+
+        .about-text {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff4d4d;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .btn-learn-about {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-learn-about:hover {
+            background-color: #ff3333;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
+        }
+
+        /* --- Join as Host Section Styling --- */
+        .join-host-section {
+            padding: 6rem 0;
+            background-color: #333;
+            background-image: linear-gradient(135deg, #333 0%, #222 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .join-host-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMjIyIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMzMzMiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=');
+            opacity: 0.1;
+        }
+
+        .join-host-content {
+            padding-right: 3rem;
+        }
+
+        .join-host-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .host-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background-color: rgba(255, 77, 77, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff4d4d;
+            font-size: 1.3rem;
+        }
+
+        .benefit-text h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-text p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .btn-host-apply {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-host-apply:hover {
+            background-color: #ff3333;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
+        }
+
+        /* --- Destinations Section Styling --- */
+        .destinations-section {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-left: 350px;
+            /* margin-bottom: 1.5rem; */
+            font-weight: 700;
+            font-size: 2.8rem;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #ff4d4d;
+            border-radius: 3px;
+        }
+
+
+        /* Filter buttons */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background-color: transparent;
+            color: #333;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 30px;
+            padding: 8px 20px;
+            margin: 0.5rem;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background-color: #ff4d4d;
+            border-color: #ff4d4d;
+            color: #fff;
+        }
+
+        /* Destination Cards */
+        .destination-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            height: 350px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background-color: #fff;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .destination-img {
+            width: 100%;
+            height: 65%;
+            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .destination-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+            z-index: 1;
+        }
+
+        .destination-img span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .destination-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 35%;
+            background: white;
+            padding: 18px;
+            color: #333;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .destination-name {
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+            color: #222;
+            letter-spacing: -0.5px;
+        }
+
+        .destination-overlay p {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .destination-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .destination-price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #ff4d4d;
+            letter-spacing: -0.5px;
+        }
+
+        .destination-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: rgba(255, 77, 77, 0.95);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 25px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+            z-index: 3;
+            text-transform: uppercase;
+        }
+
+        /* Book Now Button */
+        .btn-book-now {
+            background: #ff4d4d;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            box-shadow: 0 2px 5px rgba(255, 77, 77, 0.3);
+        }
+
+        .btn-book-now:hover {
+            background: #e63c3c;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(255, 77, 77, 0.4);
+        }
+
+        /* --- Aesthetic Marquee Styling --- */
+        /* Main container with dark theme and relative positioning for the fade effect */
+        .marquee-container {
+            --marquee-bg: #111827;
+            /* Dark background color */
+            --marquee-text-color: #E5E7EB;
+            /* Light text color */
+            --marquee-accent-color: #38BDF8;
+            /* A cool, vibrant blue */
+
+            width: 100%;
+            padding: 20px 0;
+            background-color: var(--marquee-bg);
+            color: var(--marquee-text-color);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            /* Crucial for hiding the overflowing content */
+            position: relative;
+            /* Needed for the fading pseudo-elements */
+        }
+
+        /* The fading effect on the left and right sides */
+        .marquee-container::before,
+        .marquee-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 10%;
+            /* Width of the fade */
+            z-index: 2;
+            /* Sits on top of the scrolling content */
+            pointer-events: none;
+            /* Allows clicks to go through */
+        }
+
+        .marquee-container::before {
+            left: 0;
+            background: linear-gradient(to right, var(--marquee-bg), transparent);
+        }
+
+        .marquee-container::after {
+            right: 0;
+            background: linear-gradient(to left, var(--marquee-bg), transparent);
+        }
+
+        /* The scrolling content wrapper */
+        .marquee-content {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll 60s linear infinite;
+            /* Slower scroll for a calmer feel */
+        }
+
+        /* Pause animation on hover */
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* Styling for each individual item */
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            margin: 0 50px;
+            /* More space between items */
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+
+        /* Styling for the icons */
+        .marquee-item i {
+            margin-right: 15px;
+            font-size: 1.3rem;
+            color: var(--marquee-accent-color);
+            /* Use the accent color */
+        }
+
+        /* A subtle, modern separator */
+        .marquee-item::after {
+            content: '•';
+            /* A simple dot separator */
+            color: var(--marquee-text-color);
+            opacity: 0.35;
+            margin-left: 50px;
+        }
+
+        /* Highlighted text (like the discount code) */
+        .marquee-item strong {
+            font-weight: 600;
+            color: var(--marquee-accent-color);
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+            /* Adds a subtle glow */
+        }
+
+        /* The CSS animation for the scroll */
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+                /* Moves exactly one half of the total width */
+            }
+        }
+
+        /* Carousel controls */
+        .destination-carousel {
+            position: relative;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-control:hover {
+            background-color: rgba(0, 0, 0, 0.85);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-prev {
+            left: -25px;
+        }
+
+        .carousel-next {
+            right: -25px;
+        }
+
+        /* Add JavaScript functionality for carousel and filters */
+        #destinations-container {
+            transition: transform 0.5s ease;
+        }
+
+        /* Footer Styles */
+        .footer-section {
+            background-color: #0a0a0a;
+            color: #fff;
+            padding: 80px 0 30px;
+            border-top: 5px solid #ff4d4d;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-logo {
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: translateY(-5px);
+        }
+
+        .footer-heading {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #ff4d4d, #f9643d);
+            border-radius: 3px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .footer-links a:hover {
+            color: #ff4d4d;
+            padding-left: 10px;
+        }
+
+        .footer-links a::before {
+            content: '›';
+            position: absolute;
+            left: -15px;
+            opacity: 0;
+            color: #ff4d4d;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+            left: -10px;
+        }
+
+        .footer-contact {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-contact li {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-contact li i {
+            color: #ff4d4d;
+            margin-right: 12px;
+            margin-top: 5px;
+            font-size: 1.1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: #2a2a2a;
+            color: #fff;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1.1rem;
+        }
+
+        .social-icon:hover {
+            background-color: #ff4d4d;
+            color: #fff;
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(255, 77, 77, 0.4);
+        }
+
+        .footer-bottom {
+            margin-top: 60px;
+            padding-top: 25px;
+            border-top: 1px solid #333;
+        }
+
+        .copyright {
+            color: #999;
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-bottom-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 25px;
+        }
+
+        .footer-bottom-links li a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .footer-bottom-links li a:hover {
+            color: #ff4d4d;
+        }
+
+        .footer-bottom-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #ff4d4d;
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .footer-bottom-links li a:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .footer-section {
+                padding: 50px 0 20px;
+            }
+
+            .footer-bottom-links {
+                justify-content: flex-start;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="Xperio_logo.png" alt="Xperio" style="height: 70px; width: 70px; object-fit: contain; margin-top: -15px; margin-bottom: -15px;"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">EXPLORE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">EXPERIENCES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">STORIES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">ABOUT US</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-contact d-none d-lg-block">CONTACT US</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <video class="hero-video" id="heroVideo" autoplay muted loop>
+                <source src="Xperio_carousal_video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <button id="muteToggle" class="mute-toggle"><i class="fas fa-volume-mute"></i></button>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-lg-12 mx-auto hero-content">
+                        <h1>Travel <strong>Beyond</strong> Boundaries</h1>
+                        <p class="hero-subtitle">Discover <strong>authentic</strong> experiences,
+                            <strong>connect</strong> with locals, and create <strong>unforgettable</strong> memories
+                        </p>
+
+                        <div class="action-buttons">
+                            <a href="#" class="btn btn-custom btn-plan-trip">EXPLORE EXPERIENCES</a>
+                            <a href="#" class="btn btn-outline-light btn-learn-more">BECOME A HOST</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <div class="marquee-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Want something tailored just for you or your group? Reach out to us for customization!</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-users"></i>
+                    <span>Experience authentic local culture with our expert guides</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Book your next adventure today and save 15% with code <strong>XPERIO15</strong></span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-hiking"></i>
+                    <span>Discover hidden trails and breathtaking landscapes with local experts</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-utensils"></i>
+                    <span>Taste authentic regional cuisine on our culinary exploration tours</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>All our guides are certified and trained in sustainable tourism practices</span>
+                </div>
+
+                <div class="marquee-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Want something tailored just for you or your group? Reach out to us for customization!</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-users"></i>
+                    <span>Experience authentic local culture with our expert guides</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Book your next adventure today and save 15% with code <strong>XPERIO15</strong></span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-hiking"></i>
+                    <span>Discover hidden trails and breathtaking landscapes with local experts</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-utensils"></i>
+                    <span>Taste authentic regional cuisine on our culinary exploration tours</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>All our guides are certified and trained in sustainable tourism practices</span>
+                </div>
+            </div>
+        </div>
+        <section class="why-choose-us-section mt-5">
+            <div class="container">
+                <h2 class="section-title" style="text-align: center;">Why Choose Xperio</h2>
+                <p class="section-subtitle text-center mt-3" style="margin-bottom: -50px;">We're more than just a travel company - we're a community of passionate
+                    locals and travelers</p>
+
+                <div class="row features-row">
+                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="feature-title">Local Expertise</h3>
+                            <p class="feature-text">All our experiences are designed and led by passionate locals who
+                                share authentic insights</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h3 class="feature-title">Community Impact</h3>
+                            <p class="feature-text">Your travel directly supports local communities and helps preserve
+                                cultural heritage</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3 class="feature-title">Sustainable Travel</h3>
+                            <p class="feature-text">We're committed to environmentally responsible practices in all our
+                                experiences</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="feature-title">Unique Experiences</h3>
+                            <p class="feature-text">Discover hidden gems and authentic experiences you won't find in
+                                typical tourist guides</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-us-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <div class="about-image-container">
+                            <div class="about-image-main" style="background-color: #3498db; height: 400px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                <img src="/about_us.png" width="800px" height="400px" alt="">
+                            </div>
+                            <div class="about-image-accent" style="background-color: #ff4d4d; height: 200px; width: 200px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                <img src="/karoly-buzas-QS7e8OrubI0-unsplash.jpg" width="250px" height="200px" alt="" style="border-radius: 15px;">
+                            </div>
+                            <div class="experience-badge">
+                                <span class="years">5+</span>
+                                <span class="text">Years of<br>Experience</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <h2 class="section-title" style="margin-left: -200px;margin-top: -30px;">About Xperio</h2>
+                            <div class="section-subtitle mt-4" style="margin-left: -300px; margin-bottom: 90px;">Connecting travelers with authentic local
+                                experiences since 2018</div>
+
+                            <p class="about-text">At Xperio, we believe travel should be transformative, not just
+                                transactional. Our mission is to create meaningful connections between travelers and
+                                local communities, fostering cultural exchange and sustainable tourism practices.</p>
+
+                            <p class="about-text">Founded by a team of passionate travelers and local experts, we've
+                                built a platform that empowers communities to share their heritage while providing
+                                visitors with authentic, immersive experiences that go beyond typical tourism.</p>
+
+                            <div class="about-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">200+</span>
+                                    <span class="stat-label">Local Hosts</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">50+</span>
+                                    <span class="stat-label">Destinations</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">15K+</span>
+                                    <span class="stat-label">Happy Travelers</span>
+                                </div>
+                            </div>
+
+                            <a href="#" class="btn btn-custom btn-learn-about">LEARN MORE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="destinations-section">
+            <div class="container">
+                <h2 class="section-title" style="margin-left: 290px;">Top Rated Destinations</h2>
+                <p class="section-subtitle" style="margin-left: 310px; margin-top: 30px; margin-bottom: 20px;" >Discover unforgettable adventures curated by local experts</p>
+
+                <div class="filter-buttons">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Nature</button>
+                    <button class="filter-btn">Culture</button>
+                    <button class="filter-btn">Adventure</button>
+                    <button class="filter-btn">Agro Tourism</button>
+                </div>
+
+                <div class="destination-carousel">
+                    <div class="carousel-control carousel-prev"><i class="fas fa-chevron-left"></i></div>
+                    <div class="carousel-control carousel-next"><i class="fas fa-chevron-right"></i></div>
+
+                    <div class="row flex-nowrap" id="destinations-container" style="overflow-x: hidden;">
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">NATURE</div>
+                                <div class="destination-img" style="background-color: #3498db; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/vishnu-prasad-lDxuodSvmbw-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Dakshina Kannada</h3>
+                                    <p>Wild Rivers & Sustainable Villages</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹2500/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">CULTURE</div>
+                                <div class="destination-img" style="background-color: #e74c3c; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/sai-venkat-hsbIDdRtv7E-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Uttara Kannada</h3>
+                                    <p>Mythical Rhythms of Yakshagana</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹4275/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">ADVENTURE</div>
+                                <div class="destination-img" style="background-color: #2ecc71; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/anirudh-kk-rlT6zIXjfTQ-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Jog Falls</h3>
+                                    <p>Backwater Bliss Retreat</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹3125/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">NATURE</div>
+                                <div class="destination-img" style="background-color: #f39c12; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Ramanagara</h3>
+                                    <p>Day Getaway Into Wild Near Bangalore</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹1630/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">CULTURE</div>
+                                <div class="destination-img" style="background-color: #9b59b6; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Hampi</h3>
+                                    <p>Lingadahalli: Sufi Rhythms & Ancient Ruins</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹4850/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">AGRO TOURISM</div>
+                                <div class="destination-img" style="background-color: #1abc9c; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Hassan</h3>
+                                    <p>Farm Stay & Nature Trails Discovery</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹2500/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">ADVENTURE</div>
+                                <div class="destination-img" style="background-color: #34495e; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Coorg</h3>
+                                    <p>Coffee Plantation & Trekking Adventure</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹3750/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">CULTURE</div>
+                                <div class="destination-img" style="background-color: #16a085; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Mysore</h3>
+                                    <p>Royal Heritage & Silk Weaving Traditions</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹2100/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">NATURE</div>
+                                <div class="destination-img" style="background-color: #27ae60; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Chikmagalur</h3>
+                                    <p>Mountain Peaks & Coffee Estates</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹3200/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">ADVENTURE</div>
+                                <div class="destination-img" style="background-color: #8e44ad; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Gokarna</h3>
+                                    <p>Beach Trekking & Coastal Exploration</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹2900/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">AGRO TOURISM</div>
+                                <div class="destination-img" style="background-color: #d35400; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Mandya</h3>
+                                    <p>Sugarcane Farms & Rural Lifestyle</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹1850/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">CULTURE</div>
+                                <div class="destination-img" style="background-color: #c0392b; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Pattadakal</h3>
+                                    <p>Ancient Temples & Historical Wonders</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹2750/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">NATURE</div>
+                                <div class="destination-img" style="background-color: #2980b9; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Agumbe</h3>
+                                    <p>Rainforest Ecology & Sunset Views</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹2950/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">ADVENTURE</div>
+                                <div class="destination-img" style="background-color: #7f8c8d; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Dandeli</h3>
+                                    <p>White Water Rafting & Wildlife Safari</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹3600/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">CULTURE</div>
+                                <div class="destination-img" style="background-color: #f1c40f; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Udupi</h3>
+                                    <p>Temple Cuisine & Coastal Traditions</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹2400/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">AGRO TOURISM</div>
+                                <div class="destination-img" style="background-color: #e67e22; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Sakleshpur</h3>
+                                    <p>Spice Plantations & Mountain Railways</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹3100/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">NATURE</div>
+                                <div class="destination-img" style="background-color: #95a5a6; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Kudremukh</h3>
+                                    <p>Mountain Biodiversity & Trekking Trails</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹3400/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">ADVENTURE</div>
+                                <div class="destination-img" style="background-color: #1abc9c; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Yana</h3>
+                                    <p>Rock Climbing & Cave Exploration</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹2800/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">CULTURE</div>
+                                <div class="destination-img" style="background-color: #3498db; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Belur</h3>
+                                    <p>Temple Architecture & Stone Carving</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹2200/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">AGRO TOURISM</div>
+                                <div class="destination-img" style="background-color: #e74c3c; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Bidar</h3>
+                                    <p>Organic Farming & Rural Crafts</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹2350/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">NATURE</div>
+                                <div class="destination-img" style="background-color: #2ecc71; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Kabini</h3>
+                                    <p>Wildlife Safari & Riverside Camping</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹4100/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="destination-card">
+                                <div class="destination-tag">ADVENTURE</div>
+                                <div class="destination-img" style="background-color: #9b59b6; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    <img src="/nandu-menon-hGHldbCgYDA-unsplash.jpg" width="370px" height="240px" alt=""></div>
+                                <div class="destination-overlay">
+                                    <h3 class="destination-name">Karwar</h3>
+                                    <p>Scuba Diving & Island Exploration</p>
+                                    <div class="destination-info">
+                                        <span class="destination-price">₹3900/person</span>
+                                        <a href="#" class="btn btn-book-now">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="join-host-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="join-host-content">
+                            <h2 class="section-title text-white" style="width: 400px; margin-bottom: 60px;">Become a Host</h2>
+                            <p class="join-host-subtitle">Share your passion, culture, and local knowledge with
+                                travelers from around the world</p>
+
+                            <div class="host-benefits">
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                    <div class="benefit-text">
+                                        <h4>Earn Extra Income</h4>
+                                        <p>Turn your knowledge and passion into a sustainable income source</p>
+                                    </div>
+                                </div>
+
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                    <div class="benefit-text">
+                                        <h4>Share Your Culture</h4>
+                                        <p>Showcase your traditions, heritage, and local way of life</p>
+                                    </div>
+                                </div>
+
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-handshake"></i>
+                                    </div>
+                                    <div class="benefit-text">
+                                        <h4>Join Our Community</h4>
+                                        <p>Connect with like-minded hosts and passionate travelers</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#" class="btn btn-host-apply">APPLY TO HOST</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="join-host-image" style="background-color: #2980b9; height: 450px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                            <img src="host.png" alt="" height="450px" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-logo">
+                        <img src="Xperio_logo.png" alt="Xperio Logo" height="50">
+                    </div>
+                    <p class="mt-3">Experience the authentic local culture with our curated travel experiences. We
+                        connect travelers with local communities for meaningful and sustainable adventures.</p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Experiences</a></li>
+                        <li><a href="#">Destinations</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Popular Destinations</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Dakshina Kannada</a></li>
+                        <li><a href="#">Uttara Kannada</a></li>
+                        <li><a href="#">Ramanagara</a></li>
+                        <li><a href="#">Hampi</a></li>
+                        <li><a href="#">Hassan</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Contact Us</h5>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Travel Street, Bangalore, India</li>
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope"></i> info@xperio.travel</li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="copyright">© 2023 Xperio. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <ul class="footer-bottom-links">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Mute/Unmute functionality for video
+            const video = document.getElementById('heroVideo');
+            const muteToggle = document.getElementById('muteToggle');
+            if (video && muteToggle) {
+                const muteIcon = muteToggle.querySelector('i');
+                muteToggle.addEventListener('click', function() {
+                    if (video.muted) {
+                        video.muted = false;
+                        muteIcon.classList.remove('fa-volume-mute');
+                        muteIcon.classList.add('fa-volume-up');
+                    } else {
+                        video.muted = true;
+                        muteIcon.classList.remove('fa-volume-up');
+                        muteIcon.classList.add('fa-volume-mute');
+                    }
+                });
+            }
+
+            // --- Destination Cards Carousel and Filter Functionality ---
+            const carouselContainer = document.getElementById('destinations-container');
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            // FIX: Clone the original cards to create a persistent master list
+            const allCardElements = Array.from(carouselContainer.children).map(card => card.cloneNode(true));
+
+            let cardWidth = 0;
+            let currentPosition = 0;
+            let maxPosition = 0;
+
+            function updateCarouselPosition() {
+                carouselContainer.style.transform = `translateX(-${currentPosition}px)`;
+            }
+
+            function updateCarouselControls() {
+                // Use a 1px tolerance for floating point issues
+                const isScrollable = carouselContainer.scrollWidth > carouselContainer.offsetWidth + 1;
+                if (!isScrollable) {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                } else {
+                    prevBtn.style.display = 'flex';
+                    nextBtn.style.display = 'flex';
+                }
+            }
+
+            function setupCarousel() {
+                const currentCards = carouselContainer.children;
+                if (currentCards.length === 0) {
+                    updateCarouselControls();
+                    return;
+                }
+
+                cardWidth = currentCards[0].offsetWidth;
+                maxPosition = Math.max(0, carouselContainer.scrollWidth - carouselContainer.offsetWidth);
+
+                if (currentPosition > maxPosition) {
+                    currentPosition = maxPosition;
+                    updateCarouselPosition();
+                }
+
+                updateCarouselControls();
+            }
+
+            prevBtn.addEventListener('click', function() {
+                currentPosition = Math.max(0, currentPosition - cardWidth);
+                updateCarouselPosition();
+            });
+
+            nextBtn.addEventListener('click', function() {
+                // FIX: Check if the carousel is already at the end before shifting
+                if (currentPosition >= maxPosition - 1) {
+                    currentPosition = maxPosition; // Snap to end just in case, but don't scroll further
+                    updateCarouselPosition();
+                    return; // Explicitly stop the function here
+                }
+                
+                currentPosition = Math.min(maxPosition, currentPosition + cardWidth);
+                updateCarouselPosition();
+            });
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    const filterValue = this.textContent.trim().toUpperCase();
+
+                    // FIX: Filter from the persistent cloned list
+                    const filteredCards = allCardElements.filter(cardElement => {
+                        if (filterValue === 'ALL') {
+                            return true;
+                        }
+                        const cardTag = cardElement.querySelector('.destination-tag').textContent.trim().toUpperCase();
+                        return cardTag === filterValue;
+                    });
+                    
+                    carouselContainer.innerHTML = '';
+                    // Append clones back to the container
+                    filteredCards.forEach(card => carouselContainer.appendChild(card.cloneNode(true))); 
+
+                    currentPosition = 0;
+                    updateCarouselPosition();
+                    setTimeout(setupCarousel, 50);
+                });
+            });
+
+            // Initial setup
+            setTimeout(setupCarousel, 50);
+            window.addEventListener('resize', setupCarousel);
+        });
+    </script>
+</body>
+</body>
+
+</html>
