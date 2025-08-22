@@ -9,7 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
     <style>
@@ -20,7 +22,7 @@
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
             background-color: #ffffff;
             color: #333;
@@ -228,7 +230,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .marquee-container {
             padding: 20px 0;
             background-color: #111827;
@@ -256,12 +258,17 @@
         }
 
         @keyframes scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
 
         .why-choose-us-section {
-            padding: 5rem 0 3rem 0; /* Reduced bottom padding */
+            padding: 5rem 0 3rem 0;
             background-color: #f9f9f9;
         }
 
@@ -305,12 +312,11 @@
             font-weight: 700;
         }
 
-        /* ### CHANGE 1: SPACING REDUCED ### */
         .about-us-section {
-            padding: 4rem 0 6rem 0; /* Reduced top padding from 6rem to 4rem */
+            padding: 4rem 0 6rem 0;
             background-color: #fff;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 1.5rem;
@@ -319,7 +325,7 @@
             position: relative;
             display: inline-block;
         }
-        
+
         .section-title-container {
             text-align: center;
             margin-bottom: 3rem;
@@ -336,7 +342,7 @@
             background-color: var(--primary-color);
             border-radius: 3px;
         }
-        
+
         .section-subtitle {
             text-align: center;
             color: #666;
@@ -344,12 +350,12 @@
             margin: -1.5rem auto 3rem auto;
         }
 
-        /* ### CHANGE 2: HEADER ANIMATIONS ADDED ### */
         @keyframes slideUpFadeIn {
             from {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -357,43 +363,128 @@
         }
 
         @keyframes growWidth {
-            from { width: 0; }
-            to { width: 80px; }
-        }
-        
-        /* Style title before animation */
-        .section-title {
-            opacity: 0; 
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 80px;
+            }
         }
 
-        /* Trigger animations when parent section is visible */
+        .section-title {
+            opacity: 0;
+        }
+
         .fade-in-section.is-visible .section-title {
             animation: slideUpFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
+
         .fade-in-section.is-visible .section-title::after {
-            animation: growWidth 0.6s ease-out 0.5s forwards; /* 0.5s delay */
+            animation: growWidth 0.6s ease-out 0.5s forwards;
         }
-        /* Special styles for dark section title */
-         .join-host-section .section-title {
+
+        .join-host-section .section-title {
             color: white;
-         }
+        }
 
+        .about-image-container {
+            position: relative;
+        }
 
-        .about-image-container { position: relative; }
-        .about-image-main { border-radius: 15px; overflow: hidden; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); }
-        .about-image-accent { position: absolute; bottom: -30px; right: -30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(255, 77, 77, 0.2); z-index: 2; border: 4px solid white; }
-        .experience-badge { position: absolute; top: 30px; left: -20px; background-color: var(--primary-color); color: white; width: 120px; height: 120px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3); z-index: 3; text-align: center; }
-        .experience-badge .years { font-size: 2rem; font-weight: 700; line-height: 1; }
-        .experience-badge .text { font-size: 0.8rem; line-height: 1.2; }
-        .about-content { padding-left: 2rem; }
-        .about-text { font-size: 1rem; color: #555; line-height: 1.8; margin-bottom: 1.5rem; }
-        .about-stats { display: flex; gap: 2rem; margin: 2.5rem 0; }
-        .stat-item { display: flex; flex-direction: column; }
-        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--primary-color); }
-        .stat-label { font-size: 0.9rem; color: #666; }
-        .btn-learn-about { background-color: var(--primary-color); color: white; border: none; padding: 12px 30px; border-radius: 30px; font-weight: 600; }
-        .btn-learn-about:hover { background-color: #ff3333; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3); }
-        
+        .about-image-main {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image-accent {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.2);
+            z-index: 2;
+            border: 4px solid white;
+        }
+
+        .experience-badge {
+            position: absolute;
+            top: 30px;
+            left: -20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
+            z-index: 3;
+            text-align: center;
+        }
+
+        .experience-badge .years {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .experience-badge .text {
+            font-size: 0.8rem;
+            line-height: 1.2;
+        }
+
+        .about-content {
+            padding-left: 2rem;
+        }
+
+        .about-text {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .btn-learn-about {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        .btn-learn-about:hover {
+            background-color: #ff3333;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
+        }
+
         .destinations-section {
             padding: 5rem 0;
             background-color: #f8f9fa;
@@ -433,7 +524,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease;
             background-color: #fff;
-            display: flex; 
+            display: flex;
             flex-direction: column;
             height: 100%;
         }
@@ -445,7 +536,7 @@
 
         .destination-img {
             width: 100%;
-            padding-top: 60%; 
+            padding-top: 60%;
             background-size: cover;
             background-position: center;
             flex-shrink: 0;
@@ -458,9 +549,9 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            flex-grow: 1; 
+            flex-grow: 1;
         }
-        
+
         .destination-host {
             display: flex;
             align-items: center;
@@ -475,22 +566,25 @@
             border-radius: 50%;
             object-fit: cover;
         }
+
         .host-name {
             display: block;
             font-weight: 600;
             color: #333;
         }
+
         .fa-check-circle {
             color: var(--primary-color);
             font-size: 0.9rem;
         }
 
-        .destination-name { 
-            font-weight: 700; 
-            font-size: 1.4rem; 
+        .destination-name {
+            font-weight: 700;
+            font-size: 1.4rem;
             margin-top: 0.5rem;
             line-height: 1.3;
         }
+
         .destination-short-desc {
             font-size: 0.9rem;
             color: #666;
@@ -500,7 +594,7 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
-            min-height: 43px; 
+            min-height: 43px;
         }
 
         .destination-specs {
@@ -508,35 +602,97 @@
             gap: 1.5rem;
             margin: 1rem 0;
         }
-        .spec-item { display: flex; align-items: center; gap: 8px; }
-        .spec-icon { font-size: 1.2rem; color: #888; }
-        .spec-label { display: block; font-size: 0.7rem; color: #888; text-transform: uppercase; font-weight: 600; }
-        .spec-value { display: block; font-weight: 600; font-size: 0.9rem; }
-        .destination-tags { margin-bottom: 1rem; }
-        .tag { display: inline-block; background-color: #f0f0f0; border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; margin-right: 8px; margin-top: 5px; font-weight: 500; }
 
-        .destination-info { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .spec-icon {
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        .spec-label {
+            display: block;
+            font-size: 0.7rem;
+            color: #888;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .spec-value {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .destination-tags {
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f0f0f0;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            margin-right: 8px;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        .destination-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border-top: 1px solid #eee;
             padding-top: 1rem;
             margin-top: auto;
         }
-        .destination-price { font-weight: 700; font-size: 1.5rem; color: #333; }
-        .destination-price small { font-size: 0.8rem; font-weight: 400; color: #666; }
-        .btn-book-now { background: #222; color: #fff; border: none; border-radius: 25px; padding: 10px 20px; font-size: 0.9rem; font-weight: 600; transition: all 0.3s; text-decoration: none; }
-        .btn-book-now:hover { background: #000; transform: translateY(-3px); color: #fff; }
-        
-        .join-host-section { 
-            padding: 6rem 0; 
+
+        .destination-price {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .destination-price small {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .btn-book-now {
+            background: #222;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-book-now:hover {
+            background: #000;
+            transform: translateY(-3px);
+            color: #fff;
+        }
+
+        .join-host-section {
+            padding: 6rem 0;
             background-color: #1a1a1a;
-            color: white; 
+            color: white;
             overflow: hidden;
         }
-        .join-host-content { 
-            padding-right: 3rem; 
+
+        .join-host-content {
+            padding-right: 3rem;
         }
+
         .benefit-item {
             display: flex;
             align-items: flex-start;
@@ -546,12 +702,14 @@
             border-radius: 8px;
             transition: all 0.3s ease;
         }
+
         .benefit-item:hover {
             background-color: rgba(255, 255, 255, 0.05);
             transform: translateX(5px);
         }
-        .benefit-icon { 
-            background-color: rgba(255, 77, 77, 0.2); 
+
+        .benefit-icon {
+            background-color: rgba(255, 77, 77, 0.2);
             color: var(--primary-color);
             width: 50px;
             height: 50px;
@@ -562,30 +720,36 @@
             justify-content: center;
             font-size: 1.5rem;
         }
-        .btn-host-apply { 
-            background-color: var(--primary-color); 
-            color: white; 
-            border: none; 
-            padding: 14px 30px; 
-            border-radius: 30px; 
-            font-weight: 600; 
+
+        .btn-host-apply {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 600;
         }
-        .btn-host-apply:hover { 
-            background-color: #ff3333; 
-            transform: translateY(-3px); 
-            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3); 
+
+        .btn-host-apply:hover {
+            background-color: #ff3333;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
         }
+
         .join-host-image-container {
             position: relative;
             min-height: 450px;
         }
-        .host-image-1, .host-image-2 {
+
+        .host-image-1,
+        .host-image-2 {
             position: absolute;
             border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             object-fit: cover;
             transition: all 0.4s ease;
         }
+
         .host-image-1 {
             width: 70%;
             height: 350px;
@@ -593,6 +757,7 @@
             left: 0;
             z-index: 2;
         }
+
         .host-image-2 {
             width: 60%;
             height: 300px;
@@ -600,11 +765,11 @@
             right: 0;
             border: 5px solid #2a2a2a;
         }
-        
-        /* ### MODIFIED RULES ### */
+
         .join-host-image-container:hover .host-image-1 {
             transform: translateX(-25%);
         }
+
         .join-host-image-container:hover .host-image-2 {
             transform: translateX(25%);
         }
@@ -614,7 +779,11 @@
             gap: 1.5rem;
             margin-top: 2rem;
         }
-        .step-item { flex: 1; }
+
+        .step-item {
+            flex: 1;
+        }
+
         .step-number {
             width: 40px;
             height: 40px;
@@ -628,75 +797,327 @@
             font-size: 1.2rem;
             margin-bottom: 1rem;
         }
+
         .step-title {
             font-weight: 600;
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
             color: #fff;
         }
+
         .step-description {
             font-size: 0.9rem;
             color: #ccc;
         }
 
-        .footer-section { background-color: #0a0a0a; color: #ccc; padding: 80px 0 30px; border-top: 5px solid var(--primary-color); box-shadow: 0 -10px 30px rgba(0,0,0,0.2); }
-        .footer-heading { font-size: 1.3rem; font-weight: 700; margin-bottom: 30px; position: relative; padding-bottom: 12px; letter-spacing: 0.5px; }
-        .footer-heading::after { content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 3px; background: linear-gradient(135deg, #ff4d4d, #f9643d); border-radius: 3px; }
-        .footer-links li { margin-bottom: 14px; }
-        .footer-links a { color: #ccc; text-decoration: none; transition: all 0.3s ease; position: relative; }
-        .footer-links a:hover { color: var(--primary-color); padding-left: 10px; }
-        .footer-links a::before { content: '›'; position: absolute; left: -15px; opacity: 0; color: var(--primary-color); transition: all 0.3s ease; }
-        .footer-links a:hover::before { opacity: 1; left: -5px; }
-        .footer-contact li { display: flex; align-items: flex-start; margin-bottom: 18px; }
-        .footer-contact li i { color: var(--primary-color); margin-right: 12px; margin-top: 5px; }
-        .social-icon { background-color: #2a2a2a; color: #fff; transition: all 0.3s ease; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; }
-        .social-icon:hover { background-color: var(--primary-color); transform: translateY(-5px); }
-        .footer-bottom { border-top: 1px solid #333; }
-        .footer-bottom-links a { color: #aaa; text-decoration: none; transition: all 0.3s ease; }
-        .footer-bottom-links a:hover { color: var(--primary-color); text-decoration: underline; }
+        .footer-section {
+            background-color: #0a0a0a;
+            color: #ccc;
+            padding: 80px 0 30px;
+            border-top: 5px solid var(--primary-color);
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+        }
 
-        .fade-in-section { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
-        .destination-carousel { position: relative; }
-        .carousel-container-outer { overflow: hidden; padding-top: 20px; }
-        .carousel-control { position: absolute; top: 40%; transform: translateY(-50%); width: 50px; height: 50px; background-color: rgba(255, 255, 255, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333; font-size: 1.3rem; cursor: pointer; z-index: 10; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
-        .carousel-control:hover { background-color: #fff; transform: translateY(-50%) scale(1.1); }
-        .carousel-prev { left: -25px; }
-        .carousel-next { right: -25px; }
-        #destinations-container { 
+        .footer-heading {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #ff4d4d, #f9643d);
+            border-radius: 3px;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .footer-links a::before {
+            content: '›';
+            position: absolute;
+            left: -15px;
+            opacity: 0;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+            left: -5px;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+
+        .footer-contact li i {
+            color: var(--primary-color);
+            margin-right: 12px;
+            margin-top: 5px;
+        }
+
+        .social-icon {
+            background-color: #2a2a2a;
+            color: #fff;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+        }
+
+        .footer-bottom-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .destination-carousel {
+            position: relative;
+        }
+
+        .carousel-container-outer {
+            overflow: hidden;
+            padding-top: 20px;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-control:hover {
+            background-color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: -25px;
+        }
+
+        .carousel-next {
+            right: -25px;
+        }
+
+        #destinations-container {
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             align-items: stretch;
         }
 
-        #contactModal .modal-content { border: none; border-radius: 15px; overflow: hidden; }
-        #contactModal .modal-header { border-bottom: none; background-color: #fff; color: #333; padding: 1.5rem 2rem 0 2rem; }
-        #contactModal .modal-header .btn-close { filter: none; }
-        #contactModal .modal-body { padding: 0; }
-        #contactModal .form-control { border-radius: 8px; padding: 0.75rem 1rem; border: 1px solid #ddd; }
-        #contactModal .form-control:focus { border-color: var(--primary-color); box-shadow: 0 0 0 0.25rem rgba(255, 77, 77, 0.25); }
-        #contactModal .form-control.is-invalid { border-color: #dc3545; }
-        #contactModal .form-control.is-invalid:focus { border-color: #dc3545; box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); }
-        .contact-info-panel { background-color: #1a1a1a; background-image: linear-gradient(145deg, #222 0%, #111 100%); color: #fff; padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
-        .contact-info-panel .footer-contact li { font-size: 1rem; margin-bottom: 1.5rem; color: #ccc; }
-        .contact-info-panel .footer-contact li i { font-size: 1.2rem; margin-top: 8px; }
-        .contact-info-panel .social-icon { background-color: #333; }
-        .contact-info-panel .social-icon:hover { background-color: var(--primary-color); }
-        .toast-notification { position: fixed; bottom: 30px; right: 30px; background-color: #28a745; color: white; padding: 16px 24px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 15px; z-index: 9999; opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease; visibility: hidden; }
-        .toast-notification.show { opacity: 1; transform: translateY(0); visibility: visible; }
-        .toast-notification i { font-size: 1.5rem; }
+        #contactModal .modal-content {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
 
-        @media (min-width: 992px) { .contact-info-panel { border-top-right-radius: 15px; border-bottom-right-radius: 15px; } }
-        @media (max-width: 991.98px) { .contact-info-panel { border-radius: 0; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; } .how-it-works-steps { flex-direction: column;} }
-        @media (max-width: 767.98px) { .footer-section { text-align: center; } .footer-heading::after { left: 50%; transform: translateX(-50%); } .social-icons { justify-content: center; } .about-content { padding-left: 0;} }
+        #contactModal .modal-header {
+            border-bottom: none;
+            background-color: #fff;
+            color: #333;
+            padding: 1.5rem 2rem 0 2rem;
+        }
+
+        #contactModal .modal-header .btn-close {
+            filter: none;
+        }
+
+        #contactModal .modal-body {
+            padding: 0;
+        }
+
+        #contactModal .form-control {
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+        }
+
+        #contactModal .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(255, 77, 77, 0.25);
+        }
+
+        #contactModal .form-control.is-invalid {
+            border-color: #dc3545;
+        }
+
+        #contactModal .form-control.is-invalid:focus {
+            border-color: #dc3545;
+            box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+        }
+
+        .contact-info-panel {
+            background-color: #1a1a1a;
+            background-image: linear-gradient(145deg, #222 0%, #111 100%);
+            color: #fff;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info-panel .footer-contact li {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: #ccc;
+        }
+
+        .contact-info-panel .footer-contact li i {
+            font-size: 1.2rem;
+            margin-top: 8px;
+        }
+
+        .contact-info-panel .social-icon {
+            background-color: #333;
+        }
+
+        .contact-info-panel .social-icon:hover {
+            background-color: var(--primary-color);
+        }
+
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #28a745;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 9999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            visibility: hidden;
+        }
+
+        .toast-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        .toast-notification i {
+            font-size: 1.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .contact-info-panel {
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .contact-info-panel {
+                border-radius: 0;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+            }
+
+            .how-it-works-steps {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .footer-section {
+                text-align: center;
+            }
+
+            .footer-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .about-content {
+                padding-left: 0;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="Xperio_logo.png" alt="Xperio" style="height: 70px; width: 70px; object-fit: contain; margin-top: -15px; margin-bottom: -15px;"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="#"><img src="Xperio_logo.png" alt="Xperio"
+                        style="height: 110px; width: 110px; object-fit: contain; margin-top: -30px; margin-bottom: -30px;"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -706,7 +1127,8 @@
                         <li class="nav-item"><a class="nav-link" href="#about">ABOUT US</a></li>
                         <li class="nav-item"><a class="nav-link" href="#partner">PARTNER</a></li>
                     </ul>
-                    <a href="#" class="btn btn-contact d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#contactModal">CONTACT US</a>
+                    <a href="#" class="btn btn-contact d-none d-lg-block" data-bs-toggle="modal"
+                        data-bs-target="#contactModal">CONTACT US</a>
                 </div>
             </div>
         </nav>
@@ -723,7 +1145,8 @@
                 <div class="row">
                     <div class="col-lg-12 mx-auto hero-content">
                         <h1>Travel <strong>Beyond</strong> Boundaries</h1>
-                        <p class="hero-subtitle">Discover <strong>authentic</strong> experiences, <strong>connect</strong> with locals, and create <strong>unforgettable</strong> memories</p>
+                        <p class="hero-subtitle">Discover <strong>authentic</strong> experiences,
+                            <strong>connect</strong> with locals, and create <strong>unforgettable</strong> memories</p>
                         <div class="action-buttons">
                             <a href="#experiences" class="btn btn-custom btn-plan-trip">EXPLORE EXPERIENCES</a>
                             <a href="#partner" class="btn btn-custom btn-learn-more">BECOME A HOST</a>
@@ -733,11 +1156,28 @@
             </div>
         </section>
 
-        <div class="marquee-container"><div class="marquee-content"><div class="marquee-item"><i class="fas fa-map-marker-alt"></i><span>Want something tailored? Reach out for customization!</span></div><div class="marquee-item"><i class="fas fa-users"></i><span>Experience authentic local culture with our expert guides</span></div><div class="marquee-item"><i class="fas fa-calendar-alt"></i><span>Book now and save 15% with code <strong>XPERIO15</strong></span></div><div class="marquee-item"><i class="fas fa-hiking"></i><span>Discover hidden trails and breathtaking landscapes</span></div><div class="marquee-item"><i class="fas fa-map-marker-alt"></i><span>Want something tailored? Reach out for customization!</span></div><div class="marquee-item"><i class="fas fa-users"></i><span>Experience authentic local culture with our expert guides</span></div></div></div>
-        
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <div class="marquee-item"><i class="fas fa-map-marker-alt"></i><span>Want something tailored? Reach out
+                        for customization!</span></div>
+                <div class="marquee-item"><i class="fas fa-users"></i><span>Experience authentic local culture with our
+                        expert guides</span></div>
+                <div class="marquee-item"><i class="fas fa-calendar-alt"></i><span>Book now and save 15% with code
+                        <strong>XPERIO15</strong></span></div>
+                <div class="marquee-item"><i class="fas fa-hiking"></i><span>Discover hidden trails and breathtaking
+                        landscapes</span></div>
+                <div class="marquee-item"><i class="fas fa-map-marker-alt"></i><span>Want something tailored? Reach out
+                        for customization!</span></div>
+                <div class="marquee-item"><i class="fas fa-users"></i><span>Experience authentic local culture with our
+                        expert guides</span></div>
+            </div>
+        </div>
+
         <section id="experiences" class="destinations-section fade-in-section">
             <div class="container">
-                <div class="section-title-container"><h2 class="section-title">Top Rated Destinations</h2></div>
+                <div class="section-title-container">
+                    <h2 class="section-title">Top Rated Destinations</h2>
+                </div>
                 <p class="section-subtitle">Discover unforgettable adventures curated by local experts</p>
                 <div class="filter-buttons">
                     <button class="filter-btn active" data-filter="all">All</button>
@@ -759,13 +1199,41 @@
 
         <section class="why-choose-us-section fade-in-section">
             <div class="container">
-                <div class="section-title-container"><h2 class="section-title">Why Choose Xperio</h2></div>
-                <p class="section-subtitle">We're more than just a travel company - we're a community of passionate locals and travelers</p>
+                <div class="section-title-container">
+                    <h2 class="section-title">Why Choose Xperio</h2>
+                </div>
+                <p class="section-subtitle">We're more than just a travel company - we're a community of passionate
+                    locals and travelers</p>
                 <div class="row features-row">
-                    <div class="col-lg-3 col-md-6 mb-4"><div class="feature-card h-100"><div class="feature-icon"><i class="fas fa-users"></i></div><h3 class="feature-title">Local Expertise</h3><p>All our experiences are led by passionate locals who share authentic insights.</p></div></div>
-                    <div class="col-lg-3 col-md-6 mb-4"><div class="feature-card h-100"><div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div><h3 class="feature-title">Community Impact</h3><p>Your travel directly supports local communities and helps preserve cultural heritage.</p></div></div>
-                    <div class="col-lg-3 col-md-6 mb-4"><div class="feature-card h-100"><div class="feature-icon"><i class="fas fa-leaf"></i></div><h3 class="feature-title">Sustainable Travel</h3><p>We're committed to environmentally responsible practices in all our experiences.</p></div></div>
-                    <div class="col-lg-3 col-md-6 mb-4"><div class="feature-card h-100"><div class="feature-icon"><i class="fas fa-star"></i></div><h3 class="feature-title">Unique Experiences</h3><p>Discover hidden gems and authentic experiences you won't find in typical tourist guides.</p></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="fas fa-users"></i></div>
+                            <h3 class="feature-title">Local Expertise</h3>
+                            <p>All our experiences are led by passionate locals who share authentic insights.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                            <h3 class="feature-title">Community Impact</h3>
+                            <p>Your travel directly supports local communities and helps preserve cultural heritage.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                            <h3 class="feature-title">Sustainable Travel</h3>
+                            <p>We're committed to environmentally responsible practices in all our experiences.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="fas fa-star"></i></div>
+                            <h3 class="feature-title">Unique Experiences</h3>
+                            <p>Discover hidden gems and authentic experiences you won't find in typical tourist guides.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -780,18 +1248,32 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-5 mb-lg-0">
                         <div class="about-image-container">
-                            <div class="about-image-main"><img src="images/about_us.png" class="img-fluid" alt="About Us Main Image"></div>
-                            <div class="about-image-accent"><img src="images/karoly-buzas-QS7e8OrubI0-unsplash.jpg" width="250px" height="200px" alt="Accent Image" style="border-radius: 15px;"></div>
-                            <div class="experience-badge"><span class="years">5+</span><span class="text">Years of<br>Experience</span></div>
+                            <div class="about-image-main"><img src="images/about_us.png" class="img-fluid"
+                                    alt="About Us Main Image"></div>
+                            <div class="about-image-accent"><img src="images/karoly-buzas-QS7e8OrubI0-unsplash.jpg"
+                                    width="250px" height="200px" alt="Accent Image" style="border-radius: 15px;"></div>
+                            <div class="experience-badge"><span class="years">5+</span><span class="text">Years
+                                    of<br>Experience</span></div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="about-content">
-                            <p class="about-text">At Xperio, we believe travel should be transformative. Our mission is to create meaningful connections between travelers and local communities, fostering cultural exchange and sustainable tourism practices.</p>
+                            <p class="about-text">At Xperio, we believe travel should be transformative. Our mission is
+                                to create meaningful connections between travelers and local communities, fostering
+                                cultural exchange and sustainable tourism practices.</p>
                             <div class="about-stats">
-                                <div class="stat-item"><span class="stat-number">200+</span><span class="stat-label">Local Hosts</span></div>
-                                <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">Destinations</span></div>
-                                <div class="stat-item"><span class="stat-number">15K+</span><span class="stat-label">Happy Travelers</span></div>
+                                <div class="stat-item">
+                                    <span class="stat-number" data-target="200" data-suffix="+">0</span>
+                                    <span class="stat-label">Local Hosts</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" data-target="50" data-suffix="+">0</span>
+                                    <span class="stat-label">Destinations</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" data-target="15" data-suffix="K+">0</span>
+                                    <span class="stat-label">Happy Travelers</span>
+                                </div>
                             </div>
                             <a href="#" class="btn btn-custom btn-learn-about">LEARN MORE</a>
                         </div>
@@ -805,41 +1287,73 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-5 mb-lg-0">
                         <div class="join-host-content">
-                            <div class="section-title-container" style="text-align: left;"><h2 class="section-title" style="margin-left:0; transform: translateX(0); text-align: left;">Partner With Us</h2></div>
-                            <p class="section-subtitle text-white-50" style="text-align: left; margin-left: 0;">Share your heritage. Empower your community. Create a sustainable future through tourism that respects and preserves your way of life.</p>
-                            <div class="host-benefits">
-                                <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-money-bill-wave"></i></div><div><h4>Sustainable Livelihoods</h4><p>Create a reliable income stream that complements and supports your traditional economy.</p></div></div>
-                                <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-globe"></i></div><div><h4>Cultural Preservation</h4><p>Showcase your traditions to respectful travelers, ensuring your heritage is valued and passed on.</p></div></div>
-                                <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-handshake"></i></div><div><h4>Global Partnership</h4><p>We provide the platform and support, you provide the authentic experience. It's a partnership built on mutual respect.</p></div></div>
+                            <div class="section-title-container" style="text-align: left;">
+                                <h2 class="section-title"
+                                    style="margin-left:0; transform: translateX(0); text-align: left;">Partner With Us
+                                </h2>
                             </div>
-                             <a href="#" class="btn btn-host-apply mt-4">BECOME A HOST</a>
+                            <p class="section-subtitle text-white-50" style="text-align: left; margin-left: 0;">Share
+                                your heritage. Empower your community. Create a sustainable future through tourism that
+                                respects and preserves your way of life.</p>
+                            <div class="host-benefits">
+                                <div class="benefit-item">
+                                    <div class="benefit-icon"><i class="fas fa-money-bill-wave"></i></div>
+                                    <div>
+                                        <h4>Sustainable Livelihoods</h4>
+                                        <p>Create a reliable income stream that complements and supports your
+                                            traditional economy.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-icon"><i class="fas fa-globe"></i></div>
+                                    <div>
+                                        <h4>Cultural Preservation</h4>
+                                        <p>Showcase your traditions to respectful travelers, ensuring your heritage is
+                                            valued and passed on.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+                                    <div>
+                                        <h4>Global Partnership</h4>
+                                        <p>We provide the platform and support, you provide the authentic experience.
+                                            It's a partnership built on mutual respect.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-host-apply mt-4">BECOME A HOST</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="join-host-image-container">
-                            <img src="images/local_weave.webp" alt="Local host explaining weaving to a traveler" class="host-image-1">
-                            <img src="images/Farmer_traveller.jpg" alt="Smiling farmer showing produce to a guest" class="host-image-2">
+                            <img src="images/local_weave.webp" alt="Local host explaining weaving to a traveler"
+                                class="host-image-1">
+                            <img src="images/farmer_traveler2.jpg" alt="Smiling farmer showing produce to a guest"
+                                class="host-image-2">
                         </div>
                     </div>
                 </div>
-                 <div class="row mt-5 pt-4">
+                <div class="row mt-5 pt-4">
                     <div class="col-12">
                         <h3 class="text-center text-white mb-4">How It Works</h3>
                         <div class="how-it-works-steps">
                             <div class="step-item">
                                 <div class="step-number">1</div>
                                 <div class="step-title">Apply Online</div>
-                                <div class="step-description">Fill out a simple form about you and the unique experience you offer.</div>
+                                <div class="step-description">Fill out a simple form about you and the unique experience
+                                    you offer.</div>
                             </div>
                             <div class="step-item">
                                 <div class="step-number">2</div>
                                 <div class="step-title">We Connect</div>
-                                <div class="step-description">Our team will reach out to learn more and help you craft the perfect listing.</div>
+                                <div class="step-description">Our team will reach out to learn more and help you craft
+                                    the perfect listing.</div>
                             </div>
                             <div class="step-item">
                                 <div class="step-number">3</div>
                                 <div class="step-title">Welcome Travelers</div>
-                                <div class="step-description">Once live, you can start sharing your passion with guests from around the world.</div>
+                                <div class="step-description">Once live, you can start sharing your passion with guests
+                                    from around the world.</div>
                             </div>
                         </div>
                     </div>
@@ -851,12 +1365,60 @@
     <footer class="footer-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"><div class="footer-logo"><a href="#"><img src="Xperio_logo.png" alt="Xperio Logo" height="50"></a></div><p class="mt-3">Meaningful journeys into the heart of India's living cultures. Travel with respect, connect with humanity.</p><div class="social-icons mt-4 d-flex flex-row gap-3"><a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-twitter"></i></a></div></div>
-                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0"><h5 class="footer-heading">Quick Links</h5><ul class="list-unstyled footer-links"><li><a href="#">Home</a></li><li><a href="#experiences">Experiences</a></li><li><a href="#about">About Us</a></li><li><a href="#partner">Partner</a></li></ul></div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0"><h5 class="footer-heading">Popular Destinations</h5><ul class="list-unstyled footer-links"><li><a href="#">Dakshina Kannada</a></li><li><a href="#">Uttara Kannada</a></li><li><a href="#">Ramanagara</a></li><li><a href="#">Hampi</a></li></ul></div>
-                <div class="col-lg-3 col-md-6"><h5 class="footer-heading">Contact Us</h5><ul class="list-unstyled footer-contact"><li><i class="fas fa-map-marker-alt"></i><div>123 Travel Street,<br>Bengaluru, India</div></li><li><i class="fas fa-phone"></i><div>+91 9876543210</div></li><li><i class="fas fa-envelope"></i><div>info@xperio.travel</div></li></ul></div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-logo"><a href="#"><img src="Xperio_logo.png" alt="Xperio Logo" style="height: 110px;"></a>
+                    </div>
+                    <p class="mt-3">Meaningful journeys into the heart of India's living cultures. Travel with respect,
+                        connect with humanity.</p>
+                    <div class="social-icons mt-4 d-flex flex-row gap-3"><a href="#" class="social-icon"><i
+                                class="fab fa-facebook-f"></i></a><a href="#" class="social-icon"><i
+                                class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i
+                                class="fab fa-twitter"></i></a></div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#experiences">Experiences</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#partner">Partner</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Popular Destinations</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Dakshina Kannada</a></li>
+                        <li><a href="#">Uttara Kannada</a></li>
+                        <li><a href="#">Ramanagara</a></li>
+                        <li><a href="#">Hampi</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Contact Us</h5>
+                    <ul class="list-unstyled footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i>
+                            <div>123 Travel Street,<br>Bengaluru, India</div>
+                        </li>
+                        <li><i class="fas fa-phone"></i>
+                            <div>+91 9876543210</div>
+                        </li>
+                        <li><i class="fas fa-envelope"></i>
+                            <div>info@xperio.travel</div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-bottom mt-5 pt-4"><div class="row"><div class="col-md-6"><p class="copyright text-white-50">&copy; 2025 Xperio. All rights reserved.</p></div><div class="col-md-6 text-md-end"><div class="footer-bottom-links d-inline-flex gap-3"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div></div></div></div>
+            <div class="footer-bottom mt-5 pt-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="copyright text-white-50">&copy; 2025 Xperio. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="footer-bottom-links d-inline-flex gap-3"><a href="#">Privacy Policy</a><a
+                                href="#">Terms of Service</a></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -864,32 +1426,41 @@
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title fs-4 w-50" style="padding-left: 180px; margin-bottom: -20px;"  id="contactModalLabel">Get In Touch</h5>
-                    <button type="button" class="btn-close z-3 bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title fs-4 w-50" style="padding-left: 180px; margin-bottom: -20px;"
+                        id="contactModalLabel">Get In Touch</h5>
+                    <button type="button" class="btn-close z-3 bg-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
                     <div class="row g-0">
                         <div class="col-lg-6">
                             <div class="p-5">
-                                <p class="text-muted mb-4">Have a question, a suggestion, or a special request? We'd love to hear from you. Fill out the form and our team will get back to you shortly.</p>
+                                <p class="text-muted mb-4">Have a question, a suggestion, or a special request? We'd
+                                    love to hear from you. Fill out the form and our team will get back to you shortly.
+                                </p>
                                 <form id="contactForm" novalidate>
                                     <div class="mb-3">
                                         <label for="contactName" class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" id="contactName" placeholder="Your Name" required>
+                                        <input type="text" class="form-control" id="contactName" placeholder="Your Name"
+                                            required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="contactEmail" class="form-label">Email Address</label>
-                                        <input type="email" class="form-control" id="contactEmail" placeholder="you@example.com" required>
+                                        <input type="email" class="form-control" id="contactEmail"
+                                            placeholder="you@example.com" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="contactSubject" class="form-label">Subject</label>
-                                        <input type="text" class="form-control" id="contactSubject" placeholder="e.g., Custom Trip Inquiry">
+                                        <input type="text" class="form-control" id="contactSubject"
+                                            placeholder="e.g., Custom Trip Inquiry">
                                     </div>
                                     <div class="mb-4">
                                         <label for="contactMessage" class="form-label">Message</label>
-                                        <textarea class="form-control" id="contactMessage" rows="5" placeholder="Tell us how we can help..." required></textarea>
+                                        <textarea class="form-control" id="contactMessage" rows="5"
+                                            placeholder="Tell us how we can help..." required></textarea>
                                     </div>
-                                     <button type="submit" class="btn btn-custom btn-plan-trip w-100">Send Message</button>
+                                    <button type="submit" class="btn btn-custom btn-plan-trip w-100">Send
+                                        Message</button>
                                 </form>
                             </div>
                         </div>
@@ -897,10 +1468,18 @@
                             <div class="p-5 text-white">
                                 <h3 class="mb-5 text-center ms-4">Contact Information</h3>
                                 <ul class="list-unstyled footer-contact">
-                                    <li><i class="fas fa-map-marker-alt fa-fw"></i><div>123 Travel Street,<br>Bengaluru, India</div></li>
-                                    <li><i class="fas fa-phone fa-fw"></i><div>+91 9876543210</div></li>
-                                    <li><i class="fas fa-envelope fa-fw"></i><div>info@xperio.travel</div></li>
-                                    <li><i class="fas fa-clock fa-fw"></i><div>Mon - Fri, 9am - 6pm IST</div></li>
+                                    <li><i class="fas fa-map-marker-alt fa-fw"></i>
+                                        <div>123 Travel Street,<br>Bengaluru, India</div>
+                                    </li>
+                                    <li><i class="fas fa-phone fa-fw"></i>
+                                        <div>+91 9876543210</div>
+                                    </li>
+                                    <li><i class="fas fa-envelope fa-fw"></i>
+                                        <div>info@xperio.travel</div>
+                                    </li>
+                                    <li><i class="fas fa-clock fa-fw"></i>
+                                        <div>Mon - Fri, 9am - 6pm IST</div>
+                                    </li>
                                 </ul>
                                 <h4 class="mt-5 mb-3">Follow Us</h4>
                                 <div class="social-icons mt-3 d-flex flex-row gap-3">
@@ -915,173 +1494,213 @@
             </div>
         </div>
     </div>
-    
+
     <div id="successToast" class="toast-notification">
         <i class="fas fa-check-circle"></i>
         <span>Message sent successfully!</span>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="data.js"></script> 
+    <script src="data.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const navbar = document.querySelector('.navbar');
-        window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
 
-        const video = document.getElementById('heroVideo');
-        const muteToggle = document.getElementById('muteToggle');
-        if (video && muteToggle) {
-            const muteIcon = muteToggle.querySelector('i');
-            muteToggle.addEventListener('click', function() {
-                video.muted = !video.muted;
-                muteIcon.classList.toggle('fa-volume-mute', video.muted);
-                muteIcon.classList.toggle('fa-volume-up', !video.muted);
-            });
-        }
+            const video = document.getElementById('heroVideo');
+            const muteToggle = document.getElementById('muteToggle');
+            if (video && muteToggle) {
+                const muteIcon = muteToggle.querySelector('i');
+                muteToggle.addEventListener('click', function () {
+                    video.muted = !video.muted;
+                    muteIcon.classList.toggle('fa-volume-mute', video.muted);
+                    muteIcon.classList.toggle('fa-volume-up', !video.muted);
+                });
+            }
 
-        const sections = document.querySelectorAll('.fade-in-section');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('is-visible');
-            });
-        }, { threshold: 0.1 });
-        sections.forEach(section => observer.observe(section));
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('is-visible');
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => observer.observe(section));
 
-        const carouselContainer = document.getElementById('destinations-container');
-        const prevBtn = document.querySelector('.carousel-prev');
-        const nextBtn = document.querySelector('.carousel-next');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        
-        let allCardElements = [];
-        let cardWidth = 0;
-        let currentPosition = 0;
-        let visibleCards = 3;
+            const carouselContainer = document.getElementById('destinations-container');
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            const filterButtons = document.querySelectorAll('.filter-btn');
 
-        function createCard(data) {
-            const cardCol = document.createElement('div');
-            cardCol.className = 'col-lg-4 col-md-6 col-sm-10';
-            cardCol.innerHTML = `
-            <div class="destination-card" data-categories="${data.category.join(',')}" data-id="${data.id}">
-                <div class="destination-img" style="background-image: url('${data.image}');"></div>
-                <div class="destination-overlay">
-                    <div class="flex-grow-1">
-                        <div class="destination-host">
-                            <img src="${data.hostAvatar}" alt="Host" class="host-avatar">
+            let allCardElements = [];
+            let cardWidth = 0;
+            let currentPosition = 0;
+            let visibleCards = 3;
+
+            function createCard(data) {
+                const cardCol = document.createElement('div');
+                cardCol.className = 'col-lg-4 col-md-6 col-sm-10';
+                cardCol.innerHTML = `
+                <div class="destination-card" data-categories="${data.category.join(',')}" data-id="${data.id}">
+                    <div class="destination-img" style="background-image: url('${data.image}');"></div>
+                    <div class="destination-overlay">
+                        <div class="flex-grow-1">
+                            <div class="destination-host">
+                                <img src="${data.hostAvatar}" alt="Host" class="host-avatar">
+                                <div>
+                                    <span>Hosted by <i class="fas fa-check-circle"></i></span>
+                                    <span class="host-name">${data.hostName}</span>
+                                </div>
+                            </div>
+                            <h3 class="destination-name">${data.title}</h3>
+                            <p class="destination-short-desc">${data.shortDescription}</p>
+                            <div class="destination-tags">${data.category.map(cat => `<span class="tag">${cat}</span>`).join('')}</div>
+                            <div class="destination-specs">
+                                <div class="spec-item">
+                                    <i class="fas fa-calendar-alt spec-icon"></i>
+                                    <div><span class="spec-label">DURATION</span><span class="spec-value">${data.duration}</span></div>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-users spec-icon"></i>
+                                    <div><span class="spec-label">GROUP SIZE</span><span class="spec-value">${data.groupSize}</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="destination-info">
                             <div>
-                                <span>Hosted by <i class="fas fa-check-circle"></i></span>
-                                <span class="host-name">${data.hostName}</span>
+                                <span class="destination-price">${data.price}</span>
+                                <small>/ person</small>
                             </div>
-                        </div>
-                        <h3 class="destination-name">${data.title}</h3>
-                        <p class="destination-short-desc">${data.shortDescription}</p>
-                        <div class="destination-tags">${data.category.map(cat => `<span class="tag">${cat}</span>`).join('')}</div>
-                        <div class="destination-specs">
-                            <div class="spec-item">
-                                <i class="fas fa-calendar-alt spec-icon"></i>
-                                <div><span class="spec-label">DURATION</span><span class="spec-value">${data.duration}</span></div>
-                            </div>
-                            <div class="spec-item">
-                                <i class="fas fa-users spec-icon"></i>
-                                <div><span class="spec-label">GROUP SIZE</span><span class="spec-value">${data.groupSize}</span></div>
-                            </div>
+                            <a href="experience.html?id=${data.id}" class="btn btn-book-now">View Details</a>
                         </div>
                     </div>
-                    <div class="destination-info">
-                        <div>
-                            <span class="destination-price">${data.price}</span>
-                            <small>/ person</small>
-                        </div>
-                        <a href="experience.html?id=${data.id}" class="btn btn-book-now">View Details</a>
-                    </div>
-                </div>
-            </div>`;
-            return cardCol;
-        }
-
-        function populateAllCards() {
-            allCardElements = experiencesData.map(createCard);
-            filterAndDisplayCards();
-        }
-
-        function filterAndDisplayCards(filter = 'all') {
-            const filtered = (filter === 'all') ? allCardElements : allCardElements.filter(card => {
-                const categories = card.querySelector('.destination-card').dataset.categories.split(',');
-                return categories.includes(filter);
-            });
-            carouselContainer.innerHTML = '';
-            filtered.forEach(card => carouselContainer.appendChild(card));
-            currentPosition = 0;
-            carouselContainer.style.transform = 'translateX(0px)';
-            setTimeout(setupCarousel, 50);
-        }
-
-        function setupCarousel() {
-            const currentCards = carouselContainer.children;
-            if (currentCards.length === 0) {
-                prevBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
-                return;
+                </div>`;
+                return cardCol;
             }
-            visibleCards = window.innerWidth < 768 ? 1 : (window.innerWidth < 992 ? 2 : 3);
-            cardWidth = currentCards[0].offsetWidth;
-            const isScrollable = currentCards.length > visibleCards;
-            prevBtn.style.display = isScrollable ? 'flex' : 'none';
-            nextBtn.style.display = isScrollable ? 'flex' : 'none';
-        }
 
-        function moveCarousel(direction) {
-            const totalCards = carouselContainer.children.length;
-            if (totalCards <= visibleCards) return;
-            const maxPosition = (totalCards - visibleCards) * cardWidth;
-            if (direction === 'next') {
-                currentPosition = Math.min(maxPosition, currentPosition + cardWidth);
-            } else if (direction === 'prev') {
-                currentPosition = Math.max(0, currentPosition - cardWidth);
+            function populateAllCards() {
+                allCardElements = experiencesData.map(createCard);
+                filterAndDisplayCards();
             }
-            carouselContainer.style.transform = `translateX(-${currentPosition}px)`;
-        }
 
-        prevBtn.addEventListener('click', () => moveCarousel('prev'));
-        nextBtn.addEventListener('click', () => moveCarousel('next'));
+            function filterAndDisplayCards(filter = 'all') {
+                const filtered = (filter === 'all') ? allCardElements : allCardElements.filter(card => {
+                    const categories = card.querySelector('.destination-card').dataset.categories.split(',');
+                    return categories.includes(filter);
+                });
+                carouselContainer.innerHTML = '';
+                filtered.forEach(card => carouselContainer.appendChild(card));
+                currentPosition = 0;
+                carouselContainer.style.transform = 'translateX(0px)';
+                setTimeout(setupCarousel, 50);
+            }
 
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                filterAndDisplayCards(this.dataset.filter);
+            function setupCarousel() {
+                const currentCards = carouselContainer.children;
+                if (currentCards.length === 0) {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                    return;
+                }
+                visibleCards = window.innerWidth < 768 ? 1 : (window.innerWidth < 992 ? 2 : 3);
+                cardWidth = currentCards[0].offsetWidth;
+                const isScrollable = currentCards.length > visibleCards;
+                prevBtn.style.display = isScrollable ? 'flex' : 'none';
+                nextBtn.style.display = isScrollable ? 'flex' : 'none';
+            }
+
+            function moveCarousel(direction) {
+                const totalCards = carouselContainer.children.length;
+                if (totalCards <= visibleCards) return;
+                const maxPosition = (totalCards - visibleCards) * cardWidth;
+                if (direction === 'next') {
+                    currentPosition = Math.min(maxPosition, currentPosition + cardWidth);
+                } else if (direction === 'prev') {
+                    currentPosition = Math.max(0, currentPosition - cardWidth);
+                }
+                carouselContainer.style.transform = `translateX(-${currentPosition}px)`;
+            }
+
+            prevBtn.addEventListener('click', () => moveCarousel('prev'));
+            nextBtn.addEventListener('click', () => moveCarousel('next'));
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    filterAndDisplayCards(this.dataset.filter);
+                });
             });
-        });
-        
-        const contactForm = document.getElementById('contactForm');
-        const successToast = document.getElementById('successToast');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const requiredFields = [document.getElementById('contactName'), document.getElementById('contactEmail'), document.getElementById('contactMessage')];
-                let isValid = true;
-                requiredFields.forEach(field => {
-                    if (field.value.trim() === '') {
-                        isValid = false;
-                        field.classList.add('is-invalid');
-                    } else {
-                        field.classList.remove('is-invalid');
+
+            const contactForm = document.getElementById('contactForm');
+            const successToast = document.getElementById('successToast');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const requiredFields = [document.getElementById('contactName'), document.getElementById('contactEmail'), document.getElementById('contactMessage')];
+                    let isValid = true;
+                    requiredFields.forEach(field => {
+                        if (field.value.trim() === '') {
+                            isValid = false;
+                            field.classList.add('is-invalid');
+                        } else {
+                            field.classList.remove('is-invalid');
+                        }
+                    });
+                    if (isValid) {
+                        successToast.classList.add('show');
+                        setTimeout(() => { successToast.classList.remove('show'); }, 3000);
+                        contactForm.reset();
+                        requiredFields.forEach(field => field.classList.remove('is-invalid'));
+                        const contactModalEl = document.getElementById('contactModal');
+                        const contactModalInstance = bootstrap.Modal.getInstance(contactModalEl);
+                        setTimeout(() => { if (contactModalInstance) { contactModalInstance.hide(); } }, 500);
                     }
                 });
-                if (isValid) {
-                    successToast.classList.add('show');
-                    setTimeout(() => { successToast.classList.remove('show'); }, 3000);
-                    contactForm.reset();
-                    requiredFields.forEach(field => field.classList.remove('is-invalid'));
-                    const contactModalEl = document.getElementById('contactModal');
-                    const contactModalInstance = bootstrap.Modal.getInstance(contactModalEl);
-                    setTimeout(() => { if (contactModalInstance) { contactModalInstance.hide(); } }, 500);
-                }
-            });
-        }
+            }
 
-        populateAllCards();
-        window.addEventListener('resize', setupCarousel);
-    });
+            populateAllCards();
+            window.addEventListener('resize', setupCarousel);
+
+            // ### CORRECTED ANIMATED COUNTER SCRIPT ###
+            const statsSection = document.querySelector('.about-stats');
+            const counters = document.querySelectorAll('.stat-number');
+            
+            const startCounterAnimation = () => {
+                counters.forEach(counter => {
+                    counter.innerText = '0'; // Reset to 0 before starting
+                    const target = +counter.getAttribute('data-target');
+                    const suffix = counter.getAttribute('data-suffix') || '';
+                    const duration = 2000; // Animation duration in milliseconds
+                    const stepTime = Math.abs(Math.floor(duration / target));
+
+                    const updateCount = () => {
+                        const count = +counter.innerText;
+                        
+                        if (count < target) {
+                            counter.innerText = count + 1;
+                            setTimeout(updateCount, stepTime);
+                        } else {
+                            counter.innerText = target + suffix;
+                        }
+                    };
+                    updateCount();
+                });
+            };
+
+            const statsObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startCounterAnimation();
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, { threshold: 0.5 }); 
+
+            if(statsSection) {
+                 statsObserver.observe(statsSection);
+            }
+        });
     </script>
 </body>
+
 </html>

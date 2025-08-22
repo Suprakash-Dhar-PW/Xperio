@@ -220,19 +220,19 @@
                 const reviewsContainer = document.getElementById('experience-reviews');
                 if (data.reviews && data.reviews.length > 0) {
                      reviewsContainer.innerHTML = data.reviews.map(review => {
-                        let stars = Array(5).fill(0).map((_, i) => `<i class="fa-${i < review.rating ? 'solid' : 'regular'} fa-star"></i>`).join('');
-                        return `
-                        <div class="review-card">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h6 class="fw-bold mb-0">${review.name}</h6>
-                                <div class="review-stars">${stars}</div>
-                            </div>
-                            <p class="mb-0 fst-italic text-muted">"${review.comment}"</p>
-                        </div>
-                        `;
-                    }).join('');
+                         let stars = Array(5).fill(0).map((_, i) => `<i class="fa-${i < review.rating ? 'solid' : 'regular'} fa-star"></i>`).join('');
+                         return `
+                         <div class="review-card">
+                             <div class="d-flex justify-content-between align-items-center mb-2">
+                                 <h6 class="fw-bold mb-0">${review.name}</h6>
+                                 <div class="review-stars">${stars}</div>
+                             </div>
+                             <p class="mb-0 fst-italic text-muted">"${review.comment}"</p>
+                         </div>
+                         `;
+                     }).join('');
                 } else {
-                    reviewsContainer.innerHTML = '<p class="text-center text-muted">Be the first to review this experience!</p>';
+                     reviewsContainer.innerHTML = '<p class="text-center text-muted">Be the first to review this experience!</p>';
                 }
 
             } else {
